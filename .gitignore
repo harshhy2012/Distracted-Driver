@@ -3,6 +3,8 @@ dataset/split_data/test/
 dataset/split_data/validation/
 dataset/original/
 dataset/resized/
+dataset/state-farm-distracted-driver-detection
+
 
 *~
 *.npy
