@@ -90,9 +90,10 @@ test_labels_onehot = to_categorical(test_labels, num_classes=num_classes) # clas
 # ---------- TEST MODEL ----------
 
 model = create_top_model("softmax", test_data.shape[1:])
-model.load_weights("res/_top_model_weights.h5")  
+model.load_weights("res/top_model_weights.h5")  
 
 model.compile(optimizer="rmsprop", loss="categorical_crossentropy", metrics=["accuracy"])
 
-predicted = model.predict_classes(test_data)
+#predicted = model.predict_classes(test_data)
+predicted=np.argmax(model.predict(test_data), axis=-1)
 

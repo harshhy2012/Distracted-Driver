@@ -14,7 +14,7 @@ model = applications.VGG16(include_top=False, weights='imagenet')
 
 # run training images through vgg and obtain its deep features (until last convolutional layer)
 train_generator = datagen.flow_from_directory(
-                    '/dataset/split_data/train/',
+                    './dataset/split_data/train/',
                     target_size=target_size,
                     batch_size=batch_size,
                     class_mode=None, # data without labels
@@ -34,7 +34,7 @@ np.save('res/vgg_train_features.npy', vgg_train_features)
 
 # run validation images through vgg and obtain its deep features (until last convolutional layer)
 val_generator = datagen.flow_from_directory(
-                    '/dataset/split_data/validation/',
+                    './dataset/split_data/validation/',
                     target_size=target_size,
                     batch_size=batch_size,
                     class_mode=None, # data without labels
@@ -54,7 +54,7 @@ np.save('res/vgg_val_features.npy', vgg_val_features)
 
 # run testing images through vgg and obtain its deep features (until last convolutional layer)
 test_generator = datagen.flow_from_directory(
-                    '/dataset/split_data/test/',
+                    './dataset/split_data/test/',
                     target_size=target_size,
                     batch_size=batch_size,
                     class_mode=None, # data without labels

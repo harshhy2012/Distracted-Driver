@@ -6,7 +6,7 @@ import operator
 import matplotlib.pyplot as plt
 import argparse
 
-img_path = 'test.jpg'
+img_path = 'img_2810.jpg'
 
 # prepare image for classification using keras utility functions
 image = load_img(img_path, target_size=target_size)
@@ -27,7 +27,7 @@ bottleneck_features = model.predict(image_arr)
 # build top model  
 model = create_top_model("softmax", bottleneck_features.shape[1:])
 
-model.load_weights("res/_top_model_weights.h5")
+model.load_weights("res/top_model_weights.h5")
 
 predicted = model.predict(bottleneck_features)
 decoded_predictions = dict(zip(class_labels, predicted[0]))

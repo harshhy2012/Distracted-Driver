@@ -54,13 +54,13 @@ model.compile(optimizer="rmsprop", loss="categorical_crossentropy", metrics=["ac
 # only save the best weights. if the accuracy doesnt improve in 2 epochs, stop.
 checkpoint_callback = ModelCheckpoint(
                         "res/top_model_weights.h5", # store weights with this file name
-                        monitor='val_acc',
+                        monitor='val_accuracy',
                         verbose=1,
                         save_best_only=True,
                         mode='max')
 
 early_stop_callback = EarlyStopping(
-                        monitor='val_acc',
+                        monitor='val_accuracy',
                         patience=2, # max number of epochs to wait
                         mode='max') 
 
